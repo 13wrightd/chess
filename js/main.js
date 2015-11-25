@@ -24,8 +24,8 @@ $(document).ready(function(){
   		message: $('#messageField').val()
 	}
   		
-		var keycode = (event.keyCode ? event.keyCode : event.which);
-		if(keycode == '13'){
+		
+		if(event.which == '13'){
 			socket.emit('button clicked', msg);
 		}
 	})

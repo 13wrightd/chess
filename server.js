@@ -9,10 +9,18 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname+ '/index.html');
   console.log('someone loaded homepage');
 });
-app.get('/js/main.js', function (req, res) {
-  res.sendFile(__dirname+ '/js/main.js');
-  console.log('sent main.js');
+app.get('/js/*', function (req, res) {
+  res.sendFile(__dirname+ req.path);
 });
+
+app.get('/images/*', function (req, res) {
+  res.sendFile(__dirname+ req.path);
+});
+
+app.get('/game', function (req, res) {
+  res.sendFile(__dirname+ '/game.html');
+});
+
 
 
 io.on('connection', function(socket) {
