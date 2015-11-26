@@ -3,7 +3,7 @@
 var app = require('express')();
 var http = require('http').Server(app);
 app.set('port', process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3002);
-app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
+//app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
 
 
 // 1
@@ -179,6 +179,10 @@ var server = http.listen(app.get('port') ,app.get('ip'), function () {
     console.log("Express server listening at %s:%d ", app.get('ip'),app.get('port'));
 });
 
+
+var server = http.listen(app.get('port') , function () {
+    console.log("Express server listening at %s:%d ", app.get('ip'),app.get('port'));
+});
 
 
 // function guid() {
