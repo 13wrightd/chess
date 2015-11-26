@@ -176,8 +176,7 @@ io.on('connection', function(socket) {
 // });
 
 var server = http.listen(app.get('port') ,app.get('ip'), function () {
-    console.log("✔ Express server listening at %s:%d ", app.get('ip'),app.get('port'));
-    server();
+    console.log("Express server listening at %s:%d ", app.get('ip'),app.get('port'));
 });
 
 
