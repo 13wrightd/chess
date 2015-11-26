@@ -6,7 +6,7 @@ app.set('port', process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3002);
 app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
 
 
-
+// 1
 var io = require('socket.io')(http);
 
 var mongoose = require('mongoose');
@@ -170,17 +170,15 @@ io.on('connection', function(socket) {
   });
 });
 
-http.createServer(app).listen(app.get('port') ,app.get('ip'), function () {
+// http.createServer(app).listen(app.get('port') ,app.get('ip'), function () {
+//     console.log("✔ Express server listening at %s:%d ", app.get('ip'),app.get('port'));
+//     server();
+// });
+
+var server = http.listen(app.get('port') ,app.get('ip'), function () {
     console.log("✔ Express server listening at %s:%d ", app.get('ip'),app.get('port'));
     server();
- });
-
-// var server = http.listen(app.get('port'), function () {
-//   var host = server.address().address;
-//   var port = server.address().port;
-
-//   console.log('our app listening  at http://%s:%s', host, port);
-// });
+});
 
 
 
