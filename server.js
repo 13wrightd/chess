@@ -108,7 +108,7 @@ playerList.prototype.removeBySocketId = function(socketId){
   }
 }
 
-playerList.prototype.changeKeyBySocketId = function(socketId, keys){
+playerList.prototype.changeKeysBySocketId = function(socketId, keys){
   for(var i = 0; i<this.players.length;i++){
     if (this.players[i].socketId==socketId){
       this.players[i].keys=keys;
@@ -159,7 +159,7 @@ io.on('connection', function(socket) {
   players.add(socket.id);
   io.emit('players update', players);
   socket.on('key change', function(msg) {
-    players.changeKeyBySocketId(socket.id, msg);
+    players.changeKeysBySocketId(socket.id, msg);
   });
   socket.on('disconnect', function() {
     console.log('someone left');
@@ -175,9 +175,9 @@ io.on('connection', function(socket) {
 //     server();
 // });
 
-var server = http.listen(app.get('port') ,app.get('ip'), function () {
-    console.log("Express server listening at %s:%d ", app.get('ip'),app.get('port'));
-});
+// var server = http.listen(app.get('port') ,app.get('ip'), function () {
+//     console.log("Express server listening at %s:%d ", app.get('ip'),app.get('port'));
+// });
 
 
 var server = http.listen(app.get('port') , function () {
