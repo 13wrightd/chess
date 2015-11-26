@@ -2,6 +2,10 @@
 
 var app = require('express')();
 var http = require('http').Server(app);
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3002);
+app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
+
+
 
 var io = require('socket.io')(http);
 
@@ -33,6 +37,8 @@ app.get('/game', function (req, res) {
 app.get('/g2', function (req, res) {
   res.sendFile(__dirname+ '/game2.html');
 });
+
+
 
 
 //game
@@ -164,7 +170,12 @@ io.on('connection', function(socket) {
   });
 });
 
-var server = http.listen(80, function () {
+// http.createServer(app).listen(app.get('port') ,app.get('ip'), function () {
+//     console.log("✔ Express server listening at %s:%d ", app.get('ip'),app.get('port'));
+//     server();
+// });
+
+var server = http.listen(app.get('port'), function () {
   var host = server.address().address;
   var port = server.address().port;
 
