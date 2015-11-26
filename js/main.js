@@ -32,7 +32,7 @@ $(document).ready(function(){
 
 	socket.on('button was clicked', function(msg){
 		console.log(msg.first+ ' '+ msg.last+ ' clicked, message received');
-		$('#chat').append('<li>'+msg.message+'</li>');
+		$('#chat').append('<li>'+msg.first+ " " + msg.last+ ": " +msg.message+'</li>');
 	});
 });
 
