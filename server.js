@@ -170,17 +170,17 @@ io.on('connection', function(socket) {
   });
 });
 
-// http.createServer(app).listen(app.get('port') ,app.get('ip'), function () {
-//     console.log("✔ Express server listening at %s:%d ", app.get('ip'),app.get('port'));
-//     server();
+http.createServer(app).listen(app.get('port') ,app.get('ip'), function () {
+    console.log("✔ Express server listening at %s:%d ", app.get('ip'),app.get('port'));
+    server();
+ });
+
+// var server = http.listen(app.get('port'), function () {
+//   var host = server.address().address;
+//   var port = server.address().port;
+
+//   console.log('our app listening  at http://%s:%s', host, port);
 // });
-
-var server = http.listen(app.get('port'), function () {
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log('our app listening  at http://%s:%s', host, port);
-});
 
 
 
