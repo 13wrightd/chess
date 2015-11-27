@@ -1,4 +1,4 @@
-// Create the canvas
+//www// Create the canvas
 var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
 canvas.width = 512;
@@ -37,9 +37,10 @@ monsterImage.onload = function () {
 };
 monsterImage.src = "images/monster.png";
 
+
 // Game objects
 var trump = {
-	speed: 256 // movement in pixels per second
+	speed: 1080 // movement in pixels per second
 };
 var carson = {
 	speed: 256 // movement in pixels per second
@@ -113,6 +114,7 @@ var update = function (modifier) {
 		}
 	}
 
+
 	// Are trump and monster touching?
 	if (
 		trump.x <= (monster.x + 32)
@@ -120,7 +122,12 @@ var update = function (modifier) {
 		&& trump.y <= (monster.y + 32)
 		&& monster.y <= (trump.y + 32)
 	) {
+		if (13 in keysDown) { // Player holding right
+			//++trumpCaught;
+	 		console.log('yo');
+		}
 		++trumpCaught;
+
 		reset();
 	}
 
@@ -188,5 +195,6 @@ trump.y = canvas.height / 2;
 
 carson.x = canvas.width / 2;
 carson.y = canvas.height / 2;
+
 
 main();

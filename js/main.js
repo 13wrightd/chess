@@ -17,18 +17,17 @@ $(document).ready(function(){
 	});
 
 	$('#messageField').keypress(function(event){
-	var msg=
-	{
-  		first: $('#firstNameField').val(),
-  		last: $('#lastNameField').val(),
-  		message: $('#messageField').val()
-	}
-  		
+		var msg=
+		{
+  			first: $('#firstNameField').val(),
+  			last: $('#lastNameField').val(),
+  			message: $('#messageField').val()
+		}
 		
 		if(event.which == '13'){
 			socket.emit('button clicked', msg);
 		}
-	})
+	});
 
 	socket.on('button was clicked', function(msg){
 		console.log(msg.first+ ' '+ msg.last+ ' clicked, message received');

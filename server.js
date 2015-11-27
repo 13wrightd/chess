@@ -34,10 +34,10 @@ app.get('/game', function (req, res) {
 
 
 //models
-var message = require('./models/message.js');
+/*var message = require('./models/message.js');
 var a = new message({
   name:'dan',
-  message:'hey'
+  message:'yo'
 
 });
 
@@ -48,7 +48,7 @@ a.save(function(error){
   else{
     console.log(':)');
   }
-})
+})*/
 
 
 
@@ -57,8 +57,51 @@ io.on('connection', function(socket) {
   //clients.push(socket.id);   //not necessary but useful for storing users and sending messages to them
   //io.sockets.connected[socket.id].emit("message-history", messageHistoryObject.getMessages());
 
+/*
+var messageSchema = mongoose.Schema({
+  name: String,
+  message: String,
+  dateSent: { type: Date, default: Date.now }
+});
+
+var messages = mongoose.model('message', messageSchema);
+*/
+
+
+  
+  //var thePost = require('./models/message.js');
+
+  //mongoose.model('post', thePost);
+  //var posts = db.model('post');
+  //var posts = mongoose.model('posts', thePost);
+
+  //posts.find({}, [], function(err, calls) { 
+    //console.log(err, calls, calls.length);  //prints out: null [] 0
+  //});
+
+
+ // io.emit(/*last ten messages*/)
+
+
+
   socket.on('button clicked', function(msg) {
+
     io.emit('button was clicked', msg);
+
+      var message = require('./models/message.js');
+      var a = new message({
+          name: msg.first + ' ' + msg.last,
+          message:msg.message
+      })
+
+      a.save(function(error){
+        if (error){
+            console.log(':(');
+          }
+          else{
+            console.log(':)');
+          }
+      })
   });
 });
 
