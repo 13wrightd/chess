@@ -7,7 +7,7 @@
 <body>
 
 
-
+<div style="float:right">
 <form>
   First name:<br>
   <input id='firstNameField' type="text" name="firstname">
@@ -17,18 +17,19 @@
   <br>
   Message:<br>
   <input id='messageField' type="text" name="message">
-  <button id='button' type="button">Send!</button>
+  <button id='button' type="button">Send</button>
 
 </form>
 
 
-<ul id='chat'>
+<ul style = 'list-style-type: none', id='chat'>
 </ul>
-
+</div>
 
 
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 <script src="/js/main.js"></script>
+<script src="/js/game2.js"></script>
 </body>
 </html>
