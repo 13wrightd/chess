@@ -134,42 +134,13 @@ setInterval(function(){
 
 
 
-//models
-/*var message = require('./models/message.js');
-var a = new message({
-  name:'dan',
-  message:'yo'
 
-});
-<<<<<<< HEAD
-
-a.save(function(error){
-  if (error){
-    console.log(':(');
-  }
-  else{
-    console.log(':)');
-  }
-})*/
-
-=======
-// saving a 
-// a.save(function(error){
-//   if (error){
-//     console.log(':(');
-//   }
-//   else{
-//     console.log(':)');
-//   }
-// })
->>>>>>> a67fcb998f18985a6ef22116d71e45a0dc24fad2
 
 
 
 io.on('connection', function(socket) {
   //clients.push(socket.id);   //not necessary but useful for storing users and sending messages to them
   //io.sockets.connected[socket.id].emit("message-history", messageHistoryObject.getMessages());
-<<<<<<< HEAD
 
 /*
 var messageSchema = mongoose.Schema({
@@ -198,7 +169,6 @@ var messages = mongoose.model('message', messageSchema);
 
 
 
-=======
   players.add(socket.id);
   io.emit('players update', players);
   socket.on('key change', function(msg) {
@@ -208,7 +178,7 @@ var messages = mongoose.model('message', messageSchema);
     console.log('someone left');
     players.removeBySocketId(socket.id);
   });
->>>>>>> a67fcb998f18985a6ef22116d71e45a0dc24fad2
+
   socket.on('button clicked', function(msg) {
 
     io.emit('button was clicked', msg);
