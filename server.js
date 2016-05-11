@@ -30,12 +30,20 @@ app.get('/js/*', function (req, res) {
 app.get('/images/*', function (req, res) {
   res.sendFile(__dirname+ req.path);
 });
-
+app.get('/images/still/*', function (req, res) {
+  res.sendFile(__dirname+ req.path);
+});
+app.get('/images/run/*', function (req, res) {
+  res.sendFile(__dirname+ req.path);
+});
 app.get('/game', function (req, res) {
   res.sendFile(__dirname+ '/game.html');
 });
 app.get('/g2', function (req, res) {
   res.sendFile(__dirname+ '/game2.html');
+});
+app.get('/art', function (req, res) {
+  res.sendFile(__dirname+ '/art.html');
 });
 
 
